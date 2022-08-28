@@ -1,6 +1,6 @@
-/** @jsxImportSource @emotion/react */
+/** @jsx jsx */
 
-import { css } from "@emotion/react/macro";
+import { css, jsx } from "@emotion/react/macro";
 
 const childCss = css`
   width: 50px;
