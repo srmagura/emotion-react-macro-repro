@@ -1,6 +1,7 @@
 /** @jsx jsx */
 
 import { css, jsx } from "@emotion/react/macro";
+import styled from "@emotion/styled/macro";
 
 const childCss = css`
   width: 50px;
@@ -8,9 +9,11 @@ const childCss = css`
   background: blue;
 `;
 
-function Child({ className }) {
+function ChildCore({ className }) {
   return <div className={className} css={childCss}></div>;
 }
+
+const Child = styled(ChildCore)(childCss);
 
 const parentCss = css`
   width: 100px;
