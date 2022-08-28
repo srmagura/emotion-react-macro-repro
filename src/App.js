@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+/** @jsxImportSource @emotion/react */
 
-function App() {
+import { css } from "@emotion/react/macro";
+
+const childCss = css`
+  width: 50px;
+  height: 50px;
+  background: blue;
+`;
+
+function Child({ className }) {
+  return <div className={className} css={childCss}></div>;
+}
+
+const parentCss = css`
+  width: 100px;
+  height: 100px;
+  background: red;
+
+  :hover ${Child} {
+    background: green;
+  }
+`;
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div css={parentCss}>
+      <Child />
     </div>
   );
 }
-
-export default App;
